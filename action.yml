@@ -8,12 +8,11 @@ inputs:
   changelog:
     description: 'Changelog of the new version in English.'
     required: false
+  # Language-specific changelogs (dynamically supported based on Homey CLI)
+  # Use format: changelog_{language_code}
 outputs:
   version:
     description: 'The new version'
 runs:
   using: 'docker'
   image: 'Dockerfile'
-  args:
-    - ${{ inputs.version }}
-    - ${{ inputs.changelog }}
